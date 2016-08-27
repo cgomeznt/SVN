@@ -1,6 +1,21 @@
 Configurar un servidor SUBVERSION BASICO
 =========================================
 
+Siempre es bueno revisar SELINUX::
+
+	# sestatus
+
+Si queremos hacerlo permisivo::
+
+	# echo 0 > /selinux/enforce
+
+Los iptables::
+
+	# vi /etc/sysconfig/iptables
+	-A INPUT -p port --dport 3690 -j ACCEPT
+
+	# /etc/init.d/iptables restart
+
 Buscamos:: 
 
 	# yum search subversion
